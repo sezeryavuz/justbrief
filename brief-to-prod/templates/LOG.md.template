@@ -1,0 +1,21 @@
+# LOG — {{PROJECT_NAME}}
+
+Resume mechanic: every new session reads `CLAUDE.md`, then the **last entry of this file**. The `Next concrete task` line tells you where to pick up.
+
+Entries are append-only. Format: see brief-to-prod's `references/log-protocol.md`.
+
+Entry shape (copy this when adding a new entry):
+
+```markdown
+## YYYY-MM-DD HH:MM — [headline]
+
+- Bullet of what just happened
+- Bullet of significant decisions
+- Bullet of state currently in-flight
+
+**Next concrete task:** [exact task name from PLAN.md]
+```
+
+---
+
+_(No entries yet. First entry will be written at Stage A completion.)_

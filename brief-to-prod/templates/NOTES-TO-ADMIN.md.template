@@ -1,0 +1,33 @@
+# NOTES-TO-ADMIN — {{PROJECT_NAME}}
+
+Surfaced by brief-to-prod for items requiring admin input or awareness. See `references/notes-to-admin-guide.md`.
+
+## Severity meanings
+
+- **BLOCKER** — Cannot proceed without admin input. Always paired with a paused task / phase flag in PLAN.md.
+- **IMPORTANT** — Can proceed (with non-dependent work), but admin should weigh in soon.
+- **FYI** — Informational only.
+
+## Entry format
+
+```markdown
+## YYYY-MM-DD — [SEVERITY]
+
+**Issue:** [what is happening, 1–2 sentences]
+
+**What I need from you:** [concrete ask; name the options]
+
+**Affected work:** [PLAN.md phase / task affected — required for BLOCKER]
+
+**Non-dependent work in progress:** [what continues while this is open]
+
+**Resolution:** _(appended by admin)_
+```
+
+## Resolution mechanic
+
+Append `**Resolution:** YYYY-MM-DD — [decision / action taken]` to an entry to resolve it. Entries are never deleted, only resolved — the history is the audit trail.
+
+---
+
+_(No entries yet.)_

@@ -1,0 +1,23 @@
+# Trusted skill sources for brief-to-prod
+#
+# One entry per line. Lines starting with `#` are comments.
+# An entry matches the GitHub owner part of a skill's source — e.g. `anthropics` matches
+# `anthropics/skills`, `anthropics/agent-tools`, etc.
+#
+# Trust filter behavior (see references/skill-discovery-process.md):
+#   - Trusted source + audit PASS  → include
+#   - Trusted source + audit WARN  → include
+#   - Trusted source + audit FAIL  → exclude
+#   - Untrusted source + audit PASS → include with [REVIEW: untrusted source] flag
+#   - Untrusted source + audit WARN/FAIL → exclude
+#
+# Override: place a `BRIEF/trusted-sources.txt` in the project to REPLACE this list
+# project-locally. The override file uses the same one-entry-per-line format.
+#
+# v0.1.0 default trust list:
+
+anthropics
+vercel-labs
+microsoft
+obra
+ComposioHQ

@@ -17,15 +17,12 @@ You get:    a complete deliverable
 
 ## Skills in this collection
 
-| Skill | Status | What it produces |
+| Skill | Version | What it produces |
 | --- | --- | --- |
-| _(none yet)_ | — | — |
-
-_No skills published yet. First skill (`brief-to-prod`) coming soon._
+| [brief-to-prod](./brief-to-prod) | v0.1.0 | A complete software project from one brief — planned, built, tested, and deployed autonomously. |
 
 ## Planned skills
 
-- **brief-to-prod** — brief to production. Turns a product brief into a phased, production-ready build. _In design._
 - **brief-to-gtm** — turns a positioning brief into a go-to-market launch plan. _Planned._
 - **brief-to-pitch** — turns a story brief into a pitch deck and narrative. _Planned._
 - **brief-to-research** — turns a research brief into a structured report with cited evidence. _Planned._
