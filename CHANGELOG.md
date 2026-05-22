@@ -12,3 +12,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - `brief-to-prod` evolved from v0.1.0 to v0.2.0: SKILL.md workflow descriptions reference native commands; `scripts/validate-brief.sh` hardened with `set -euo pipefail`, per-block comments, and documented exit codes; reference index expanded and regrouped.
+- Repo layout: moved skills under a `skills/` wrapper folder (`brief-to-prod/` → `skills/brief-to-prod/`) to match the skills.sh convention used by `obra/superpowers`, `anthropics/skills`, and `vercel-labs/agent-skills`. The skills.sh web index expects this layout; flat layouts at repo root install via the CLI but don't render on the site. CLI install command unchanged: `npx skills add sezeryavuz/justbrief --skill brief-to-prod`.

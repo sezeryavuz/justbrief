@@ -19,7 +19,7 @@ You get:    a complete deliverable
 
 | Skill | Version | What it produces |
 | --- | --- | --- |
-| [brief-to-prod](./brief-to-prod) | v0.2.0 | A complete software project from one brief — planned, built, tested, and deployed autonomously, using Claude Code's native autonomy primitives. |
+| [brief-to-prod](./skills/brief-to-prod) | v0.2.0 | A complete software project from one brief — planned, built, tested, and deployed autonomously, using Claude Code's native autonomy primitives. |
 
 ## Planned skills
 
