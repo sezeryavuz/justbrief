@@ -8,7 +8,7 @@ All skills in this collection follow the `brief-to-X` pattern, where `X` is the 
 
 ## Proposing a new skill
 
-Before opening a pull request, open a [GitHub Discussion](https://github.com/{OWNER}/justbrief/discussions) describing:
+Before opening a pull request, open a [GitHub Discussion](https://github.com/sezeryavuz/justbrief/discussions) describing:
 
 - **Brief shape** — what documents does the user provide?
 - **Deliverable shape** — what does the skill produce?

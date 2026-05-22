@@ -2,7 +2,7 @@
 
 > Claude Code skills that turn a small brief into a finished thing.
 
-[![Installs](https://skills.sh/b/{OWNER}/justbrief)](https://www.skills.sh/{OWNER}/justbrief)
+[![Installs](https://skills.sh/b/sezeryavuz/justbrief)](https://www.skills.sh/sezeryavuz/justbrief)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Cursor%20%7C%20Codex-8b5cf6)](https://www.skills.sh)
 
@@ -30,7 +30,7 @@ You get:    a complete deliverable
 ## Quick start
 
 ```bash
-npx skills add {OWNER}/justbrief --skill <skill-name>
+npx skills add sezeryavuz/justbrief --skill <skill-name>
 ```
 
 Works with [Claude Code](https://www.anthropic.com/claude-code), Cursor, Codex, Windsurf, and any agent that consumes skills.sh skills.
