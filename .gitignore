@@ -32,3 +32,10 @@ pnpm-debug.log*
 /dist/
 /build/
 .claude
+CLAUDE.md
+
+# Author's local Claude Code workspace (slash commands, locally-installed skills)
+.claude/
+
+# Per-skill development workspaces — cleaned up by /finalize-skill, but ignored as a safety net
+**/.workspace/
