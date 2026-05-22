@@ -91,7 +91,66 @@ The only structured interaction in the skill's lifecycle. Use `AskUserQuestion` 
 
 **Discipline:** ask only the questions worth asking. If the brief unambiguously specified something, don't ask about it. If you can decide with confidence, decide.
 
-### Question catalog (sample — adapt to the brief)
+### Step 8a — Opt-in (new in v0.2)
+
+Before asking any selectable questions, ask one wrapper question with `AskUserQuestion`:
+
+> *"I've analyzed your brief and made some interpretation choices. I'd like to ask 5 quick questions to make sure I got the important decisions right. They take about 2 minutes total and each is a tap-to-answer."*
+>
+> Options:
+> - `Yes — ask the 5 questions`
+> - `No — proceed with your best judgement`
+
+**If the user picks "Yes":** continue to step 8b (the 5 questions).
+
+**If the user picks "No":** skip the questions. Write the assumptions you made as a single IMPORTANT entry in `NOTES-TO-ADMIN.md`:
+
+```markdown
+## YYYY-MM-DD — IMPORTANT
+
+**Issue:** User opted out of the Stage A confirmation questions. I proceeded with the following interpretation choices, any of which may be wrong:
+
+- Project type: [your interpretation]
+- Stack selections for FLEXIBLE decisions: [list]
+- Phase shape: [N phases, brief description]
+- Out-of-scope assumptions: [list anything notable]
+- External dependencies assumed ready: [list]
+
+**What I need from you:** Flag any of the above that's wrong before Stage B reaches the affected phase.
+
+**Resolution:** _(awaiting admin or no action needed)_
+```
+
+Then jump to step 9 (handoff).
+
+### Step 8b — The 5 questions (when opted in)
+
+Ask up to **5** focused selectable-option questions. Five is a budget, not a quota. If 3 questions cover everything material, ask 3.
+
+The 5 are **adaptive** — selected per project based on what's actually high-leverage for this brief. See "Choosing the 5 questions" below for the criteria.
+
+Use `AskUserQuestion` one question at a time. Each question is 2–4 mutually exclusive options.
+
+### Choosing the 5 questions
+
+The 5 selected questions should cover the **highest-leverage decisions for this specific project**. Rank candidate questions by:
+
+1. **Reversal cost.** Decisions that are expensive to undo later (project type, primary language, primary deploy target). High cost → ask.
+2. **Downstream impact.** Decisions that affect 3+ future phases. High impact → ask.
+3. **Brief ambiguity.** Decisions where the brief was silent or genuinely unclear, and where you had to guess. Ambiguous → ask.
+4. **External commitments.** Decisions implying account creation, vendor lock-in, or financial commitment. External → ask.
+5. **Out-of-scope risk.** If you cut something from V1 that the brief implied but didn't lock, confirm the cut.
+
+Skip candidates that:
+
+- The brief locked unambiguously (decide silently per the brief)
+- Are covered by a reasonable convention (test framework, linter, file structure)
+- Affect only one phase and are recoverable with a refactor
+- Concern style or aesthetics (decide; the user can change later)
+
+The point of the 5 is **catching misreads**, not gathering preferences. Ask things that, if wrong, would cost the user time.
+
+### Question shapes (templates — adapt to the brief)
 
 These are reference shapes. Drop, add, or rephrase per the brief's specifics.
 
@@ -119,6 +178,12 @@ These are reference shapes. Drop, add, or rephrase per the brief's specifics.
 - "SKILLS-TO-INSTALL.md lists [N] Stage 1 skills. You'll install these before Stage B. OK?"
   - Options: `OK, I'll install` · `show me the list first` · `skip — I'll work without`
 
+**Irreversible technical choice (per project)**
+- "I'm planning to use [specific irreversible choice — e.g. multi-tenant DB schema, edge-only deployment, monorepo layout]. OK to commit to this?"
+  - Options: `OK` · `alternative please` · `let me think — I'll respond in NOTES-TO-ADMIN`
+
+Pick the shapes that fit; rephrase to the brief's specifics.
+
 ### What NOT to ask
 
 - File and folder names (decide them)
@@ -130,13 +195,19 @@ These are reference shapes. Drop, add, or rephrase per the brief's specifics.
 
 ## Step 9 — Hand off
 
-After the soft confirm, tell the user verbatim:
+After the soft confirm, set the autonomy goal with `/goal` (Claude Code native command — see `native-claude-code-commands.md`). The goal should read approximately:
+
+> *"Complete all phases in PLAN.md to their stated definition-of-done. Surface BLOCKERs to NOTES-TO-ADMIN.md and continue with non-dependent work. Run the Stage C handoff protocol when context approaches 90%."*
+
+If `/goal` is unavailable in the user's Claude Code version, skip it — the autonomy contract in `references/autonomy-contract.md` carries the same meaning in prose, and Stage B will execute against it.
+
+Then tell the user verbatim:
 
 > *"Stage A is complete. Foundation artifacts and PLAN.md are in place. Before Stage B:*
 >
 > *1. Install the Stage 1 skills listed in `SKILLS-TO-INSTALL.md`.*
 > *2. Resolve any preemptive blockers in `NOTES-TO-ADMIN.md` (severity BLOCKER).*
-> *3. When ready, run `/clear` (or `/compact`) and type `continue`. I'll pick up Stage B from `LOG.md`'s last entry."*
+> *3. When ready, run `/clear` and type `continue`. I'll pick up Stage B from `LOG.md`'s last entry."*
 
 Write the corresponding LOG.md first entry:
 

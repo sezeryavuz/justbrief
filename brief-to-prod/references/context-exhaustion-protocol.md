@@ -10,12 +10,22 @@ This is Stage C.
 
 Trigger Stage C when **any** of these are true:
 
-- The session's reported context utilization is at or above ~85–90%
-- You notice the harness summarizing prior turns more aggressively than usual
+- `/context` (Claude Code native command — see `native-claude-code-commands.md`) reports utilization at or above ~85–90%
+- The harness is summarizing prior turns more aggressively than usual
 - You feel yourself losing track of details from earlier in the session (your own internal signal — trust it)
 - You are about to start a substantial new task that would push you over
 
 Prefer triggering early at a safe stopping point over triggering late mid-edit. A clean handoff at 80% is better than a panicked handoff at 96%.
+
+### How often to check `/context`
+
+Not after every tool call — that's noise. The right cadence is:
+
+- **At task boundaries** within a phase (between Task 2 and Task 3, for example).
+- **Before starting a substantial new task** that would burn a meaningful chunk of context.
+- **At phase boundaries** — natural break points. If `/context` shows >80% at a boundary, hand off proactively rather than starting a phase you can't finish.
+
+If `/context` is unavailable, fall back to the internal signals listed above.
 
 ## Find a safe stopping point
 
@@ -68,11 +78,22 @@ The "Next concrete task" line should be at the granularity of "open this file, d
 
 ## Tell the user — verbatim
 
-After writing the LOG entry:
+After writing the LOG entry, choose between `/compact` and `/clear` based on where in the work cycle you are:
 
-> *"Context is near full. Run `/clear` (or `/compact` to preserve summaries) and type `continue`. I will resume from the last `LOG.md` entry."*
+```
+Mid-phase (in-flight task, partial edits, half-passing tests) → recommend /compact
+Phase boundary (last entry was "Phase N complete")              → recommend /clear
+```
 
-Use these words. Brief, predictable, repeatable. Don't soften, don't elaborate. The user has done this dance before by now.
+The reasoning: `/compact` preserves a summary of in-flight state that LOG.md can't fully capture in bullet form. At a phase boundary, LOG.md already carries everything; a fresh context window is cleaner.
+
+Tell the user verbatim, picking ONE of the two:
+
+> Mid-phase: *"Context is near full. Run `/compact` (preserves in-flight summary) and type `continue`. I will resume from the last `LOG.md` entry."*
+>
+> Phase boundary: *"Context is near full. Run `/clear` and type `continue`. I will resume from the last `LOG.md` entry."*
+
+Use these words. Brief, predictable, repeatable. Don't soften, don't elaborate.
 
 ## Stop
 

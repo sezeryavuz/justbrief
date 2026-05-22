@@ -119,3 +119,17 @@ Stage A doesn't need to re-recommend skills the user already has. Before produci
 ## Re-running discovery later
 
 If the user adds a new feature mid-execution that needs a new domain (e.g. "let's add SMS notifications via Twilio"), Stage B can re-run discovery for that one domain and **append** to `SKILLS-TO-INSTALL.md` with a new Stage 2 entry. Do not rewrite the whole file — append.
+
+## Dynamic mid-Stage-B installation (v0.2)
+
+When Stage B reaches a phase whose required Stage 2 skills are not yet installed, the skill performs a *dynamic install* using Claude Code's `/reload-plugins` command — installing and activating the skill **without forcing a `/clear`**. This keeps Stage B's autonomous flow intact.
+
+The flow is summarized as:
+
+```
+/skills → npx skills add ... → /reload-plugins → /skills (verify) → continue
+```
+
+Full mechanics (verify steps, log lines, fallback when `/reload-plugins` is unavailable) live in `references/dynamic-skill-installation.md`. That file also covers what gets logged and what triggers a BLOCKER vs an FYI.
+
+This applies to Stage 2 skills only. Stage 1 skills are the user's pre-Stage-B contract; a missing Stage 1 skill is a BLOCKER per autonomy rule 8.

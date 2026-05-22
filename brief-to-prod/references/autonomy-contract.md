@@ -40,6 +40,8 @@ When you find yourself debating a judgment call, read the relevant rule. When tw
 - Phase completion → write `LOG.md` entry → append to `PLAN.md`'s completion log → start next phase. No user prompt in between.
 - If you find yourself drafting a "ready to proceed?" message, that's a red flag. Either write the BLOCKER or just proceed.
 
+**Native reinforcement.** Claude Code's `/goal` command is the platform-level form of this rule. At the end of Stage A, the skill sets a goal naming the PLAN.md completion as the condition. If `/goal` is available, use it; if not, the contract in this file binds equally well. See `native-claude-code-commands.md` for the command details.
+
 ## 4. `LOG.md`'s last entry is the resume point
 
 **Rule.** Every new session reads `CLAUDE.md` first, then `LOG.md`'s last entry to find where to pick up. Nothing else carries session state.
