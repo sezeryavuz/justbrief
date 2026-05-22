@@ -1,6 +1,6 @@
 ---
 name: brief-to-prod
-description: Turn a single brief (one markdown file or one detailed prompt) into a complete software project — planned, built, tested, and deployed to production. Use when starting a new software project end-to-end and the user wants minimal interaction from brief to working app. Generates VISION/PRODUCT-SPEC/TECHNICAL-DECISIONS/PLAN, executes phased autonomous buildout via Claude Code's /goal and /reload-plugins primitives, logs progress, surfaces blockers via NOTES-TO-ADMIN, and resumes across sessions using /compact or /clear as appropriate. Technology-agnostic; works with any stack the brief specifies.
+description: Turn a single brief (one markdown file or one detailed prompt) into a complete software project: planned, built, tested, and deployed autonomously. Use when starting a new software project end-to-end and the user wants minimal interaction from brief to working app. Generates VISION, PRODUCT-SPEC, TECHNICAL-DECISIONS, and PLAN. Executes phased autonomous buildout, logs progress, surfaces blockers, and resumes across sessions. Technology-agnostic.
 version: 0.2.0
 license: MIT
 ---
