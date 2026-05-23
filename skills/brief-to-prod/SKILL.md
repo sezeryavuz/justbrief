@@ -1,6 +1,6 @@
 ---
 name: brief-to-prod
-description: Turn a single brief (one markdown file or one detailed prompt) into a complete software project: planned, built, tested, and deployed autonomously. Use when starting a new software project end-to-end and the user wants minimal interaction from brief to working app. Generates VISION, PRODUCT-SPEC, TECHNICAL-DECISIONS, and PLAN. Executes phased autonomous buildout, logs progress, surfaces blockers, and resumes across sessions. Technology-agnostic.
+description: Turn a single brief, one markdown file or one detailed prompt, into a complete software project that is planned, built, tested, and deployed autonomously. Use when starting a new software project end-to-end and the user wants minimal interaction from brief to working app. Generates VISION, PRODUCT-SPEC, TECHNICAL-DECISIONS, and PLAN. Executes phased autonomous buildout, logs progress, surfaces blockers, and resumes across sessions. Technology-agnostic.
 version: 0.2.0
 license: MIT
 ---
