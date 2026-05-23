@@ -1,4 +1,11 @@
 {
   "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
-  "notGrouped": "top"
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Brief to production",
+      "description": "Skills that turn a single brief into a complete, autonomous software build.",
+      "skills": ["brief-to-prod"]
+    }
+  ]
 }
